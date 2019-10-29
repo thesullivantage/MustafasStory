@@ -1,0 +1,49 @@
+html {
+    box-sizing: border-box;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Overflow hidden in body will negate 
+overflow-y scroll in allother divs */
+
+.container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.child {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start; 
+    scroll-snap-stop: always;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.col {
+    display: block;
+}
+
+.red {
+    background-color: red
+}
+
+.blue {
+    background-color: blue
+}
+
+.green {
+    background-color: green
+}
