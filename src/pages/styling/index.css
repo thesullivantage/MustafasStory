@@ -1,8 +1,17 @@
-html {
+* {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+html, body {
     text-align: center;
     height: 100vh;
     overflow: hidden;
+
+
 }
 
 /* Overflow hidden in body will negate 
@@ -13,6 +22,7 @@ overflow-y scroll in allother divs */
     height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll;
+    scroll-snap-points-y: repeat(100vh);
 }
 
 .child {
