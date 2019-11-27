@@ -7,15 +7,14 @@ var envelope = {
         "title": "Intro",
         "prompt": false,
         "text": "",
-        "links": []
+        "links": [],
+        "return": "link"
     }]
 }
 
 
 fs.readFile(final, 'utf8', function (err, data) {
     var prelimArr = data.split('%')
-    counter = 0
-    console.log(prelimArr)
 
     // envelope.pieces[1] = {}
     // envelope.pieces[1].name = "test"
@@ -26,41 +25,97 @@ fs.readFile(final, 'utf8', function (err, data) {
     //FOR A PARTICULAR COUNTER: 
 
     // 1 GOES NOWHERE ALWAYS
-    // if ampersand, link for current; next: title, next: prompt: true; increment counter up; clear offset counter
+    // if ampersand
+        // 
+        //counter = counter + offset, clear offset counter, make object {extract title from first line; no text; next: true;}
         // extract method
     
     // else if (*) :: beginning character is a start of index item
 
-        // need to capture line (title/link) & text
-        // computer process: hit item, create object
-
-        // increment offset counter
-        // create object at (counter + offset) index of pieces  
+        // increment offset counter, create object at (counter + offset) index of pieces  
         // extract first line as title of working object, extract rest of string as text, pack up links to "parent" ampersand object
             // ** difference of acting index and offset counter and counter is how to get title -> link of ampersand object (counter)
             // "i" - offset = counter
-        // repeat until ampersand again, clear offset counter
+            // but is still just counter
+        //UNTIL:
+            // if beginning character of next item in prelimArr is a star, need to add return address as that of the counter
+            // if it's an ampersand, no return address needed
+        // repeat until ampersand again, clear offset countera 
 
     // if (&) {...} else if (*) { ... continue}
 
     // as long as objects all get made, who cares exactly what order? still need above system
-            
+        
+    
+    //these need to be independent of loop
+    var counter = 0
+    var offset = 0
+
+    var alias = envelope.pieces
     for (var i = 0; i < prelimArr.length; i++) {
         let item = prelimArr[i]
-        if (item[0] === "&" & counter > 0) {
+        
+        // no need to throw counter in for the first one
+        if (i === 0) {
+            alias[0].text = prelimArr[i]
             counter++;
+        } else if (item[0] === "&" & counter > 0) {
+            
+            counter = counter + 1 + offset;
+            offset = 0
+            const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
 
+            // alias[counter - 1].links.push(title)
+            alias[counter] = { 
+                "title": title,
+                "prompt": true,
+                "text": "",
+                "links": [],
+                "return": ""
+            }
+        
+            // Console.log REMINDERS:
+                // correct way for end of string
+                // console.log(item[item.length-1])
+                // console.log(alias[counter].title)
+                // item.match(/&(.+)\r\n\r\n/g)
+
+        } else if (item[0] === "*") {
+            const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
+            const text = item.substring(item.search("\r\n\r\n")+4, item.length-1).trim()
+            const workingInd = offset + counter
+
+            offset++;
+            alias[workingInd] = {
+                "title": title,
+                "prompt": false,
+                "text": text,
+                "links": [],
+                "return": ""
+            }
+            alias[counter].links.push(title)
+            // console.log(JSON.stringify(alias[offset+counter]))
+
+            if (i < prelimArr.length-2 & prelimArr[i+1][0] === "*") {
+                alias[workingInd].return = alias[counter].title
+                // append horizontal line here as well
+            }
+             
         }
     }
+
+    console.log(JSON.stringify(alias))
+
+
+
     
+})
+
+    //Later TODO: for each object: trim all white space from text, links, title & return
 
 
 
-
-
-
-
-
+//later idea: measure space taken up and break up string like that 
 
 
 
@@ -91,19 +146,19 @@ fs.readFile(final, 'utf8', function (err, data) {
 
     //need link from first slice
 
-    if (prePiece.length > 0) {
-        str = ""
+    // if (prePiece.length > 0) {
+    //     str = ""
         //title thing
-        for (var j = 0; j < prePiece.length; j++) {           
+        // for (var j = 0; j < prePiece.length; j++) {           
             // need break right after 
             // different "for" loops (doesn't change)
             /* 
             
             */
-            const miniObj = {}
-            const item = prePiece[j]
+            // const miniObj = {}
+            // const item = prePiece[j]
             
-            item.split("")
+            // item.split("")
 
 
 
@@ -143,13 +198,13 @@ fs.readFile(final, 'utf8', function (err, data) {
             //append now to pieces ( beginning pieces' objects)
 
         
-        }
+//         }
 
-    }
+//     }
 
 
 
-})
+// })
 
 
 /*
