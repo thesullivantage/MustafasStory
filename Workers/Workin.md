@@ -15,12 +15,6 @@
 
 -dynamically splitting up actual pieces 
 
-{
-    title: "x"
-    prompt: bool
-    linkTo: "x"
-}
-
  {
     "title": "",
     "prompt": true,
