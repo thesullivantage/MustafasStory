@@ -8,27 +8,34 @@ var envelope = {
         "prompt": false,
         "text": "",
         "links": [],
-        "return": "link"
+        "return": ""
     }]
 }
 
+/*
+{
+    "pieces": [
+        {
+            "title": "",
+            "prompt": true,
+            "text": "",
+            "links": [],
+            "return": "link"
+            
+        }
+        
+    ]
+}
+ */
 
 fs.readFile(final, 'utf8', function (err, data) {
     var prelimArr = data.split('%')
 
-    // envelope.pieces[1] = {}
-    // envelope.pieces[1].name = "test"
-
-    //TODO: extract method : capture line with substring & regex
-    // link value = title value
-
     //FOR A PARTICULAR COUNTER: 
-
     // 1 GOES NOWHERE ALWAYS
-    // if ampersand
-        // 
+    // if (ampersand) {
         //counter = counter + offset, clear offset counter, make object {extract title from first line; no text; next: true;}
-        // extract method
+        // extract method }
     
     // else if (*) :: beginning character is a start of index item
 
@@ -47,7 +54,7 @@ fs.readFile(final, 'utf8', function (err, data) {
     // as long as objects all get made, who cares exactly what order? still need above system
         
     
-    //these need to be independent of loop
+    //counter and offset need to be independent of main loop
     var counter = 0
     var offset = 0
 
@@ -57,15 +64,27 @@ fs.readFile(final, 'utf8', function (err, data) {
         
         // no need to throw counter in for the first one
         if (i === 0) {
-            alias[0].text = prelimArr[i]
+            alias[0].text = prelimArr[i];
             counter++;
         } else if (item[0] === "&" & counter > 0) {
-            
-            counter = counter + 1 + offset;
+
+            // if counter is one, and alias.length === 1: do not increment (this line moot)
+            // else if counter is one, and length is greater than 1: increment with thing
+            // else: increment up by thing 
+
+            if (alias.length > 1) {
+                counter = counter + 1 + offset
+            }
             offset = 0
+            
+            // CALIBRATION
+            console.log( "& ", i, " ", counter)
+
+
             const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
 
-            // alias[counter - 1].links.push(title)
+            alias[counter - 1].links.push(title)
+
             alias[counter] = { 
                 "title": title,
                 "prompt": true,
@@ -81,11 +100,12 @@ fs.readFile(final, 'utf8', function (err, data) {
                 // item.match(/&(.+)\r\n\r\n/g)
 
         } else if (item[0] === "*") {
+            offset++;
+            console.log("* ", i, " ", offset+counter)
             const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
             const text = item.substring(item.search("\r\n\r\n")+4, item.length-1).trim()
             const workingInd = offset + counter
-
-            offset++;
+            
             alias[workingInd] = {
                 "title": title,
                 "prompt": false,
@@ -94,22 +114,35 @@ fs.readFile(final, 'utf8', function (err, data) {
                 "return": ""
             }
             alias[counter].links.push(title)
-            // console.log(JSON.stringify(alias[offset+counter]))
-
-            if (i < prelimArr.length-2 & prelimArr[i+1][0] === "*") {
+            var off1= prelimArr[i+1]
+            
+            if (off1 && off1[0] === "*") {
                 alias[workingInd].return = alias[counter].title
-                // append horizontal line here as well
+                // TODO: append horizontal line here as well (VISUAL)
             }
              
         }
     }
 
+    for (var j = 0; j < alias.length; j++) {
+        alias[j].text = alias[j].text.split("\r\n\r\n")
+    }
+
+    // maybe find all periods in each text item, count them up, and then split in the middle somewhere, or at even intervals
+
     console.log(JSON.stringify(alias))
 
+    // Ready?
+    fs.writeFileSync('../data.json', JSON.stringify(envelope))
 
 
     
 })
+
+
+
+
+
 
     //Later TODO: for each object: trim all white space from text, links, title & return
 
