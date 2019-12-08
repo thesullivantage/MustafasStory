@@ -12,6 +12,8 @@ var envelope = {
     }]
 }
 
+
+console.log(final)
 /*
 {
     "pieces": [
@@ -78,7 +80,7 @@ fs.readFile(final, 'utf8', function (err, data) {
             offset = 0
             
             // CALIBRATION
-            console.log( "& ", i, " ", counter)
+            // console.log( "& ", i, " ", counter)
 
 
             const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
@@ -101,7 +103,7 @@ fs.readFile(final, 'utf8', function (err, data) {
 
         } else if (item[0] === "*") {
             offset++;
-            console.log("* ", i, " ", offset+counter)
+            // console.log("* ", i, " ", offset+counter)
             const title = item.substring(item.search("&") + 1, item.search("\r\n\r\n")).trim()
             const text = item.substring(item.search("\r\n\r\n")+4, item.length-1).trim()
             const workingInd = offset + counter
@@ -130,10 +132,10 @@ fs.readFile(final, 'utf8', function (err, data) {
 
     // maybe find all periods in each text item, count them up, and then split in the middle somewhere, or at even intervals
 
-    console.log(JSON.stringify(alias))
+    // console.log(JSON.stringify(alias))
 
     // Ready?
-    fs.writeFileSync('../data.json', JSON.stringify(envelope))
+    fs.writeFileSync('../src/data.json', JSON.stringify(envelope))
 
 
     

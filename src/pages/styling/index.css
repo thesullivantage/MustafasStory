@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto+Mono&display=swap');
+
+
+
+
 * {
     box-sizing: border-box;
 }
@@ -17,10 +22,10 @@ html, body {
 /* Overflow hidden in body will negate 
 overflow-y scroll in allother divs */
 
-.container {
+.container-m {
     scroll-snap-type: y mandatory;
     height: 100vh;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     overflow-y: scroll;
     scroll-snap-points-y: repeat(100vh);
 }
@@ -42,15 +47,28 @@ overflow-y scroll in allother divs */
     background: #FF0000;
 }
 
+
+
+.title {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.body-text {
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+
+
 .col {
     display: block;
 }
 
-.red {
+.top {
     background-color: red
 }
 
-.blue {
+.bottom {
     background-color: blue
 }
 

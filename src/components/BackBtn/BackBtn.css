@@ -1,0 +1,13 @@
+/* .backBtn {
+  float: right;
+  color: #e74944;
+} */
+
+.backBtn:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+.backBtn {
+  width: 100%;
+}
