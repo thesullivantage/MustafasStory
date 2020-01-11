@@ -4,12 +4,14 @@ import ContHolder from "../components/contHolder"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "./styling/index.css"
 import data from "../data.json"
-
+const pieces = data.pieces
 
 
 class Index extends Component {
+
     // import json file
     // Declare initial state of object as the intro object
+
     // no need to iterate from there, only use links
     // use alias object again to more quickly access pieces
     //handle:
@@ -43,45 +45,25 @@ class Index extends Component {
 
     state = {
         // no objects needed here
-        objInd: 0,
-        textInd: 0
+
     };
 
 
-    componentDidMount = () => {
-        console.log(data)
-    };
-
-    handleNext = () => {
-        // increment textInd by 1 
-    }
-
-    handleLink = () => {
-        // change state of triggerObj 
-    }
-
-    handleBack = () => {
-        
-    }
-
-    // COND RENDER
-        // within index
-            // if prompt = "false" then render contholder thing
-            // else render prompt space 
-        // all handling go at top so that changes can cause conditional rendering to happen
-            // within handle next (needa be on top level)
-            // pass index number down as prop
-                // if last of textInd then:  go to prompt via search & & hide next arrow
-        // condiitonally hide and next with passed props
 
 
-    
+
+    // top level: cont Holder, above that put transition group in index.js
+
+
+
+
+
 
     render() {
         return (
             <div className="container-m">
-                {/* <div className="child top title"><ContHolder /></div> */}
-                <div className="child title"><ContHolder /></div>
+                <div className="child top title">Russian Blues</div>
+                <div className="child main-p"><ContHolder data={pieces} /></div>
             </div>
 
         );

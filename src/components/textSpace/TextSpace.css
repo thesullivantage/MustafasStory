@@ -1,0 +1,19 @@
+
+
+
+.textSpace {
+    /* height: 100%; */
+    display: flex;
+    justify-content: center; /* horizontal center */
+}
+
+.text {
+    /* font-size: 100%; */
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    align-self: center;
+    size: 100 auto;
+    font-size: 100%;
+}

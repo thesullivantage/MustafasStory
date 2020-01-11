@@ -18,13 +18,13 @@
                 ""
             ],
             "links": [
-                "*If you leave",
-                "*If you stay"
+                "If you leave",
+                "If you stay"
             ],
             "return": ""
         },
         {
-            "title": "*If you leave",
+            "title": "If you leave",
             "prompt": false,
             "text": [
                 "You go inside the house where your mother is talking and cooking with her sisters while the TV is on the in the background. They all seem in good spirits. They immediately register your presence by giving you things to do. You start to chop onions, and before you know it, an apron is tied around your waist by an aunt… a little too tight for your liking. Nevertheless, you continue chopping onions, dicing tomatoes, and doing prep for the dinner that would be had later on tonight."
@@ -33,7 +33,7 @@
             "return": "Do you stay or leave?"
         },
         {
-            "title": "*If you stay",
+            "title": "If you stay",
             "prompt": false,
             "text": [
                 "One glance his way and you can tell he has been sitting here all night and worked himself into the morning, which is when you rose to come see what all the fuss was about. There is an old stereo playing classic blues in the corner, and the one window in the garage is open, where all kinds of birds occasionally flutter into for water and sunflower seeds.",
@@ -59,13 +59,13 @@
                 ""
             ],
             "links": [
-                "*If you follow him",
-                "*If you go home"
+                "If you follow him",
+                "If you go home"
             ],
             "return": ""
         },
         {
-            "title": "*If you follow him",
+            "title": "If you follow him",
             "prompt": false,
             "text": [
                 "You watch him put his belongings where they, well, belong and together you walk into the home he and your mother had lived in for over 20 years. You watch a movie\r\nwith your parents and fall asleep."
@@ -74,7 +74,7 @@
             "return": "Do you follow him or go home?"
         },
         {
-            "title": "*If you go home",
+            "title": "If you go home",
             "prompt": false,
             "text": [
                 "You say goodbye to to your dad and start to walk back to your apartment, just around the corner and down the way. It’s the closest you’ve lived to your parents, and you had lived far from them before. On the other side of the country. In another country. In another hemisphere. But now, you are within as close proximity without living on top of them.",
@@ -93,13 +93,13 @@
                 ""
             ],
             "links": [
-                "*If you follow her",
-                "*If you let her go"
+                "If you follow her",
+                "If you let her go"
             ],
             "return": ""
         },
         {
-            "title": "*If you follow her",
+            "title": "If you follow her",
             "prompt": false,
             "text": [
                 "You follow her to watch her climb into an Uber and flip you the bird. You walk back inside your apartment and get high and watch Spanglish."
@@ -108,7 +108,7 @@
             "return": "Do you follow her or let her go?"
         },
         {
-            "title": "*If you let her go",
+            "title": "If you let her go",
             "prompt": false,
             "text": [
                 "You walk to your friend Maj Khorasi’s loft, note how the halted rain clings to the night just like the tears hang on her face.",
@@ -135,13 +135,13 @@
                 ""
             ],
             "links": [
-                "*If you stay and eat",
-                "* If you stay and eat"
+                "If you stay and eat",
+                "If you stay and eat"
             ],
             "return": ""
         },
         {
-            "title": "*If you stay and eat",
+            "title": "Meet Aziza",
             "prompt": false,
             "text": [
                 "The storm the night Aziza calls you topples over the coast, makes the drive almost undoable. But it’s you, and it’s her, and she doesn’t know what’s going on. It’s\r\njust an innocent text. She’s ready to go to sleep. It’s been one hell of a wedding. But she can’t resist. She makes your hotline bling. That’s probably how she’ll play it off to the slumber-slumped lovebirds Pawel and Miritha, drunk, laid on top and over each other\r\nlike a one being.",
@@ -190,7 +190,7 @@
             "return": "Do you stay and eat or meet Aziza at a diner?"
         },
         {
-            "title": "* If you stay and eat",
+            "title": "If you stay and eat",
             "prompt": false,
             "text": [
                 "Maj and you eat his mother’s home-cooked biryani, have some ice cold Cokes poured into frosted glasses, watch sports until it’s time for him to go to bed and time for me to leave.\r\n—",
@@ -223,13 +223,13 @@
                 ""
             ],
             "links": [
-                "*You go home",
-                "*You go in"
+                "You go home",
+                "You go in"
             ],
             "return": ""
         },
         {
-            "title": "*You go home",
+            "title": "You go home",
             "prompt": false,
             "text": [
                 "You realize this is a foolish mission. You thank the man for his time and go home. You get high and watch Spanglish again."
@@ -238,7 +238,7 @@
             "return": "Do you go in and or go home?"
         },
         {
-            "title": "*You go in",
+            "title": "You go in",
             "prompt": false,
             "text": [
                 "You give him another glance-over. The lines in his face are so deep and wrinkled, you could place the lint that lived in your pockets in them. Your hands too are calloused, reddish — but his eyes tell a different story. You walk into the apartment, and he closes and locks the door behind me.",

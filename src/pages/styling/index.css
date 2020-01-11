@@ -2,7 +2,6 @@
 
 
 
-
 * {
     box-sizing: border-box;
 }
@@ -19,46 +18,56 @@ html, body {
 
 }
 
-/* Overflow hidden in body will negate 
-overflow-y scroll in allother divs */
-
 .container-m {
     scroll-snap-type: y mandatory;
     height: 100vh;
     /* overflow-x: hidden; */
     overflow-y: scroll;
     scroll-snap-points-y: repeat(100vh);
+
+    
 }
+
+.main-p {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.prompt-p .cont-p {
+    align-self: center;
+}
+
 
 .child {
     position: relative;
     height: 100vh;
     width: 100vw;
     scroll-snap-align: start; 
-    scroll-snap-stop: always;
+    /* scroll-snap-stop: always; */
 }
 
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
+
+.row {
+    text-align: center;
 }
+
+
 
 
 
 .title {
     font-family: 'Bebas Neue', cursive;
+    font-size: 30vh;
 }
 
 .body-text {
     font-family: 'Roboto Mono', monospace;
 }
-
-
-
 
 .col {
     display: block;
@@ -68,10 +77,6 @@ overflow-y scroll in allother divs */
     background-color: red
 }
 
-.bottom {
+/* .bottom {
     background-color: blue
-}
-
-.green {
-    background-color: green
-}
+} */
